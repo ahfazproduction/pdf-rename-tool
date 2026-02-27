@@ -1,6 +1,6 @@
-# PDF Rename Tool
+# Ahfaz PDF Renamer
 
-Fast offline PDF batch renaming tool designed for finance and admin workflows.
+Fast offline PDF batch renaming software designed for finance and admin workflows.
 
 ---
 
@@ -16,7 +16,7 @@ PDF Rename Tool helps you:
 
 ---
 
-## 🆓 Lite Version
+## 🆓 Ahfaz PDF Renamer Lite
 
 The Lite version is designed for basic usage.
 - Limited file processing per batch
@@ -27,7 +27,7 @@ Download from the Releases section.
 
 ---
 
-## 💼 Pro Version
+## 💼 Ahfaz PDF Renamer Pro
 
 The Pro version is built for professional workflow.
 - Unlimited file processing
