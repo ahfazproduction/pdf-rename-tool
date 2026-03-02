@@ -1,73 +1,96 @@
-# Ahfaz PDF Renamer
+# Bulk PDF Invoice Rename Tool for Windows
 
-Intelligent PDF renaming software that reads PDF content locally and renames files automatically based on detected patterns or keywords.
+<p align="center">
+  <img src="assets/cover-bulk-pdf-rename.png" width="850">
+</p>
 
-Designed for finance, accounting, and administrative workflows that require fast and accurate document organization.
+Ahfaz PDF Rename Lite is a simple and efficient **bulk PDF rename tool** designed for Windows users who need to rename multiple invoice PDF files quickly and accurately.
 
----
-
-## 🔐 100% Offline & Secure
-
-- No internet connection required  
-- No cloud processing  
-- No data upload  
-- All operations happen locally on your computer  
-
-Safe for confidential and financial documents.
+If you work in accounting, finance, administration, or export-import documentation, this tool helps you save hours of manual renaming.
 
 ---
 
-## 🚀 How It Works
+## 🔹 What This Tool Does
 
-1. Select a folder containing PDF files  
-2. Choose rename method:
-   - Field-based detection
-   - Pattern-based detection  
-3. Click **Process & Preview**
-4. Review detected filenames
-5. Apply rename
+- Rename multiple PDF invoice files at once
+- Apply custom keywords automatically
+- Clean and simple Windows interface
+- Fast batch processing
+- Designed specifically for invoice workflows
 
-The application reads up to 10 pages per file for performance optimization and automatically handles duplicate names.
-
----
-
-## ⚙ Core Features
-
-- Portable Windows application (no installation required)
-- No administrator access needed
-- Smart PDF text extraction
-- Automatic filename sanitization
-- Duplicate name auto-numbering
-- Optional backup before rename
-- Rename activity logging (rename_log.csv)
-- Light/Dark theme support
+This is not a cloud tool.  
+No upload required. Everything runs locally on your computer.
 
 ---
 
-## 🆓 Lite Version
+## 🖥 Application Interface
 
-Ahfaz PDF Renamer Lite includes:
+<p align="center">
+  <img src="assets/invoice-rename-interface.png" width="850">
+</p>
 
-- Full content-based renaming engine
-- Maximum 15 files processed per batch
-- 5-second delay between batches
-- Multiple Fields method locked
-- Upgrade reminder shown once after 100 successfully renamed files in a single session
-
----
-
-## 💼 Pro Version
-
-The Pro version removes all limitations and unlocks advanced multi-field renaming for high-volume workflows.
-https://ahfazpro.gumroad.com/l/pdfrenametoolpro
+The interface is designed for simplicity:
+- Add multiple invoice PDFs
+- Choose rename method
+- Apply keyword
+- Process instantly
 
 ---
 
-## 🖥 System Requirements
+## ⚡ Example: Invoice Rename Processing
 
-Windows 10 / Windows 11  
-Portable application – simply extract and run.
+<p align="center">
+  <img src="assets/invoice-rename-processing.png" width="850">
+</p>
+
+Bulk renaming completed in seconds with clean output file names.
+
+Perfect for:
+- Accounting departments
+- Finance administrators
+- Small business owners
+- Import-export documentation teams
 
 ---
 
-Built by Ahfaz Production
+## 🎯 Why Use a Bulk PDF Rename Tool?
+
+Manually renaming invoice PDF files is:
+- Slow
+- Error-prone
+- Repetitive
+
+Using a dedicated **invoice PDF rename software** ensures:
+- Consistency
+- Speed
+- Accuracy
+- Better file organization
+
+---
+
+## 💻 System Requirements
+
+- Windows 10 / 11
+- No installation complexity
+- Lightweight desktop application
+
+---
+
+## 📥 Download Lite Version
+
+👉 Get the Lite version here:  
+[YOUR_GUMROAD_LINK]
+
+---
+
+## 🔎 Keywords
+
+bulk rename pdf  
+rename invoice pdf  
+invoice pdf rename tool  
+batch pdf rename windows  
+accounting pdf rename software  
+
+---
+
+### Developed for professionals who handle invoice PDFs daily.
