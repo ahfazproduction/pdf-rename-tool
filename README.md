@@ -79,7 +79,7 @@ Using a dedicated **invoice PDF rename software** ensures:
 ## 📥 Download Lite Version
 
 👉 Get the Lite version here:  
-[YOUR_GUMROAD_LINK]
+[https://ahfazpro.gumroad.com/l/pdfrenametoollite]
 
 ---
 
