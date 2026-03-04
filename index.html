@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Ahfaz PDF Renamer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 * { box-sizing: border-box; }
@@ -12,13 +12,13 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #ffffff;
+  background: #f8fafc;
   color: #0f172a;
 }
 
+/* ===== NAV ===== */
 header {
-  padding: 28px 60px;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 24px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,48 +26,55 @@ header {
 
 .logo {
   font-weight: 700;
+  font-size: 16px;
   letter-spacing: 0.5px;
 }
 
-.btn {
-  background: #111827;
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
   color: white;
   padding: 14px 28px;
   text-decoration: none;
+  border-radius: 10px;
   font-weight: 600;
   font-size: 14px;
+  box-shadow: 0 10px 25px rgba(37,99,235,0.25);
+  transition: 0.2s ease;
 }
 
-.section {
-  padding: 140px 60px;
-  max-width: 1400px;
-  margin: auto;
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(37,99,235,0.35);
 }
 
+/* ===== HERO ===== */
 .hero {
   text-align: center;
-  padding-top: 120px;
+  padding: 120px 20px 80px 20px;
+  background: radial-gradient(circle at top, #e0f2fe 0%, #f8fafc 60%);
 }
 
 .hero h1 {
   font-size: 64px;
   line-height: 1.05;
   margin-bottom: 24px;
+  font-weight: 800;
 }
 
 .hero p {
   font-size: 20px;
   color: #475569;
-  max-width: 700px;
-  margin: 0 auto 80px auto;
+  max-width: 720px;
+  margin: 0 auto 60px auto;
 }
 
 .hero-image {
   max-width: 1200px;
   margin: auto;
-  border-radius: 16px;
-  box-shadow: 0 40px 80px rgba(15,23,42,0.12);
+  border-radius: 18px;
   overflow: hidden;
+  box-shadow: 0 50px 100px rgba(15,23,42,0.15);
+  border: 1px solid #e2e8f0;
 }
 
 .hero-image img {
@@ -75,20 +82,28 @@ header {
   display: block;
 }
 
+/* ===== SECTION ===== */
+.section {
+  padding: 140px 60px;
+  max-width: 1400px;
+  margin: auto;
+}
+
 .split {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 120px;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 100px;
   align-items: center;
 }
 
 .split.reverse {
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 1fr 1.1fr;
 }
 
 .text h2 {
-  font-size: 40px;
+  font-size: 42px;
   margin-bottom: 24px;
+  font-weight: 700;
 }
 
 .text p {
@@ -106,9 +121,10 @@ header {
 }
 
 .image-large {
-  border-radius: 16px;
-  box-shadow: 0 35px 70px rgba(15,23,42,0.10);
+  border-radius: 18px;
   overflow: hidden;
+  box-shadow: 0 40px 80px rgba(15,23,42,0.12);
+  border: 1px solid #e2e8f0;
 }
 
 .image-large img {
@@ -117,25 +133,60 @@ header {
 }
 
 .alt-bg {
-  background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #f1f5f9 100%);
 }
 
-footer {
-  padding: 100px 20px;
+/* ===== CTA ===== */
+.cta {
   text-align: center;
-  border-top: 1px solid #e5e7eb;
+  padding: 140px 20px;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: white;
+}
+
+.cta h2 {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.cta a {
+  background: white;
+  color: #1e3a8a;
+  padding: 16px 36px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transition: 0.2s ease;
+}
+
+.cta a:hover {
+  transform: translateY(-3px);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 80px 20px;
+  text-align: center;
   color: #64748b;
   font-size: 14px;
 }
 
 @media(max-width: 1024px) {
+  .hero h1 { font-size: 44px; }
+
   .split, .split.reverse {
     grid-template-columns: 1fr;
     gap: 60px;
   }
 
-  .hero h1 {
-    font-size: 44px;
+  .section {
+    padding: 100px 30px;
+  }
+
+  header {
+    padding: 24px 30px;
   }
 }
 </style>
@@ -145,15 +196,15 @@ footer {
 
 <header>
   <div class="logo">Ahfaz PDF Renamer</div>
-  <a href="#" class="btn">Download</a>
+  <a href="https://ahfazpro.gumroad.com/" class="btn-primary">Download</a>
 </header>
 
 <!-- HERO -->
-<section class="hero section">
-  <h1>Bulk PDF Renaming. <br>Structured. Reliable.</h1>
+<section class="hero">
+  <h1>Modern PDF Automation<br>Built for Structured Workflows</h1>
   <p>
-    Extract structured data directly from PDF documents and automatically
-    rename files in large batches with precision and consistency.
+    Extract text directly from PDF documents and automatically rename files
+    in bulk with precision, speed, and consistency.
   </p>
 
   <div class="hero-image">
@@ -169,17 +220,16 @@ footer {
     </div>
 
     <div class="text">
-      <h2>Structured Configuration Interface</h2>
+      <h2>Smart Configuration Interface</h2>
       <p>
-        Define extraction fields, apply naming logic, and configure
-        batch processing rules in a clear workflow-driven layout.
+        Define structured extraction fields and create dynamic naming rules
+        through an intuitive workflow layout.
       </p>
-
       <ul>
-        <li>Multi-field text extraction</li>
-        <li>Customizable naming format</li>
-        <li>Controlled batch execution</li>
-        <li>Preview before rename</li>
+        <li>Multi-field data extraction</li>
+        <li>Flexible renaming structure</li>
+        <li>Pre-rename preview validation</li>
+        <li>Batch rule execution</li>
       </ul>
     </div>
   </div>
@@ -189,17 +239,16 @@ footer {
 <section class="section alt-bg">
   <div class="split reverse">
     <div class="text">
-      <h2>Processing Transparency</h2>
+      <h2>Transparent Batch Processing</h2>
       <p>
-        Monitor renaming operations in real time. Every file is processed
-        locally with clear output visibility and structured results.
+        Execute bulk renaming operations with full visibility.
+        Monitor progress, validate outputs, and maintain consistent file standards.
       </p>
-
       <ul>
-        <li>Batch progress monitoring</li>
-        <li>Error detection visibility</li>
+        <li>Real-time batch monitoring</li>
+        <li>Error detection feedback</li>
         <li>Consistent naming enforcement</li>
-        <li>Offline processing environment</li>
+        <li>Fully offline processing</li>
       </ul>
     </div>
 
@@ -207,6 +256,12 @@ footer {
       <img src="assets/invoice-rename-processing.png" alt="Processing Preview">
     </div>
   </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Start Automating Your PDF Workflow</h2>
+  <a href="https://ahfazpro.gumroad.com/">Download Now</a>
 </section>
 
 <footer>
