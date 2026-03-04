@@ -1,4 +1,4 @@
-# 🔐 Ahfaz PDF Renamer  
+# Ahfaz PDF Renamer  
 ### Offline Bulk PDF Renaming for Structured Document Workflows
 
 Ahfaz PDF Renamer is an offline bulk PDF renaming tool that extracts text content from documents and automatically renames files based on detected information.
