@@ -16,21 +16,9 @@ body {
   color: #0f172a;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 120px 24px;
-}
-
 header {
+  padding: 28px 60px;
   border-bottom: 1px solid #e5e7eb;
-  background: #ffffff;
-}
-
-.nav {
-  max-width: 1200px;
-  margin: auto;
-  padding: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,112 +26,116 @@ header {
 
 .logo {
   font-weight: 700;
-  font-size: 16px;
   letter-spacing: 0.5px;
 }
 
 .btn {
-  padding: 12px 22px;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
   background: #111827;
   color: white;
+  padding: 14px 28px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.section {
+  padding: 140px 60px;
+  max-width: 1400px;
+  margin: auto;
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 100px;
-  align-items: center;
+  text-align: center;
+  padding-top: 120px;
 }
 
 .hero h1 {
-  font-size: 52px;
-  line-height: 1.1;
+  font-size: 64px;
+  line-height: 1.05;
   margin-bottom: 24px;
 }
 
 .hero p {
-  font-size: 18px;
+  font-size: 20px;
   color: #475569;
-  max-width: 500px;
+  max-width: 700px;
+  margin: 0 auto 80px auto;
 }
 
-.section-dark {
-  background: #f8fafc;
+.hero-image {
+  max-width: 1200px;
+  margin: auto;
+  border-radius: 16px;
+  box-shadow: 0 40px 80px rgba(15,23,42,0.12);
+  overflow: hidden;
 }
 
-.section-title {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 80px;
+.hero-image img {
+  width: 100%;
+  display: block;
 }
 
 .split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 120px;
   align-items: center;
 }
 
 .split.reverse {
-  direction: rtl;
+  grid-template-columns: 0.9fr 1.1fr;
 }
 
-.split.reverse > * {
-  direction: ltr;
+.text h2 {
+  font-size: 40px;
+  margin-bottom: 24px;
 }
 
-.text-block h3 {
-  font-size: 20px;
-  margin-bottom: 16px;
+.text p {
+  font-size: 18px;
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 24px;
 }
 
-.text-block p {
-  font-size: 16px;
-  color: #64748b;
-  line-height: 1.7;
+.text ul {
+  padding-left: 20px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #334155;
 }
 
-.image-frame {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 30px 60px rgba(15,23,42,0.08);
-  border: 1px solid #e5e7eb;
-}
-
-.image-frame img {
-  width: 100%;
-  display: block;
-  border-radius: 8px;
-}
-
-/* CONSISTENT RATIO */
-.image-frame {
-  aspect-ratio: 16 / 10;
+.image-large {
+  border-radius: 16px;
+  box-shadow: 0 35px 70px rgba(15,23,42,0.10);
   overflow: hidden;
 }
 
-.image-frame img {
-  object-fit: cover;
-  height: 100%;
+.image-large img {
+  width: 100%;
+  display: block;
+}
+
+.alt-bg {
+  background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
 }
 
 footer {
-  border-top: 1px solid #e5e7eb;
+  padding: 100px 20px;
   text-align: center;
-  padding: 80px 20px;
-  font-size: 14px;
+  border-top: 1px solid #e5e7eb;
   color: #64748b;
+  font-size: 14px;
 }
 
 @media(max-width: 1024px) {
-  .hero,
-  .split {
+  .split, .split.reverse {
     grid-template-columns: 1fr;
     gap: 60px;
+  }
+
+  .hero h1 {
+    font-size: 44px;
   }
 }
 </style>
@@ -152,58 +144,70 @@ footer {
 <body>
 
 <header>
-  <div class="nav">
-    <div class="logo">Ahfaz PDF Renamer</div>
-    <a href="#" class="btn">Download</a>
-  </div>
+  <div class="logo">Ahfaz PDF Renamer</div>
+  <a href="#" class="btn">Download</a>
 </header>
 
 <!-- HERO -->
-<div class="container hero">
-  <div>
-    <h1>Structured Bulk PDF Renaming</h1>
-    <p>
-      Professional offline automation for consistent document processing.
-    </p>
-  </div>
+<section class="hero section">
+  <h1>Bulk PDF Renaming. <br>Structured. Reliable.</h1>
+  <p>
+    Extract structured data directly from PDF documents and automatically
+    rename files in large batches with precision and consistency.
+  </p>
 
-  <div class="image-frame">
+  <div class="hero-image">
     <img src="assets/cover-bulk-pdf-rename.png" alt="Bulk Rename Cover">
   </div>
-</div>
+</section>
 
 <!-- INTERFACE -->
-<div class="container">
+<section class="section">
   <div class="split">
-    <div class="text-block">
-      <h3>Clean Configuration Interface</h3>
-      <p>
-        Structured extraction fields and naming rules in a clear,
-        workflow-oriented interface.
-      </p>
+    <div class="image-large">
+      <img src="assets/invoice-rename-interface.png" alt="Rename Interface">
     </div>
 
-    <div class="image-frame">
-      <img src="assets/invoice-rename-interface.png" alt="Interface Preview">
+    <div class="text">
+      <h2>Structured Configuration Interface</h2>
+      <p>
+        Define extraction fields, apply naming logic, and configure
+        batch processing rules in a clear workflow-driven layout.
+      </p>
+
+      <ul>
+        <li>Multi-field text extraction</li>
+        <li>Customizable naming format</li>
+        <li>Controlled batch execution</li>
+        <li>Preview before rename</li>
+      </ul>
     </div>
   </div>
-</div>
+</section>
 
 <!-- PROCESSING -->
-<div class="container section-dark">
+<section class="section alt-bg">
   <div class="split reverse">
-    <div class="text-block">
-      <h3>Real-Time Processing Preview</h3>
+    <div class="text">
+      <h2>Processing Transparency</h2>
       <p>
-        Monitor bulk operations with structured output and controlled execution.
+        Monitor renaming operations in real time. Every file is processed
+        locally with clear output visibility and structured results.
       </p>
+
+      <ul>
+        <li>Batch progress monitoring</li>
+        <li>Error detection visibility</li>
+        <li>Consistent naming enforcement</li>
+        <li>Offline processing environment</li>
+      </ul>
     </div>
 
-    <div class="image-frame">
+    <div class="image-large">
       <img src="assets/invoice-rename-processing.png" alt="Processing Preview">
     </div>
   </div>
-</div>
+</section>
 
 <footer>
 © 2026 Ahfaz PDF Renamer
