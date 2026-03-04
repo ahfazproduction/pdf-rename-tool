@@ -1,184 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<title>Ahfaz PDF Renamer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <title>Offline Bulk PDF Renamer for Finance & Accounting Teams | Windows Invoice Rename Software</title>
+<style>
+* { box-sizing: border-box; }
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #0f172a;
+}
 
-  <meta name="description" content="Ahfaz PDF Renamer is an offline bulk PDF renaming software for finance and accounting teams. Automatically rename invoice, tax, and financial PDF documents securely on Windows. No cloud. 100% local processing.">
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 24px;
+}
 
-  <meta name="keywords" content="offline bulk PDF renamer, invoice PDF rename software, finance PDF rename tool, batch PDF rename Windows, secure PDF renaming">
+header {
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+}
 
-  <meta name="author" content="Ahfaz Production">
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Offline Bulk PDF Renamer for Finance Teams">
-  <meta property="og:description" content="Secure offline invoice PDF renaming software for accounting professionals. 100% local Windows processing.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://ahfazproduction.github.io/pdf-rename-tool/assets/cover-bulk-pdf-rename.png">
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+}
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 950px;
-      margin: 40px auto;
-      padding: 20px;
-      line-height: 1.7;
-      color: #222;
-    }
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-    h2 {
-      margin-top: 45px;
-    }
-    h3 {
-      margin-top: 25px;
-    }
-    .badge {
-      display: inline-block;
-      background: #111;
-      color: #fff;
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      margin-top: 20px;
-      margin-right: 10px;
-      background: black;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-    .btn-lite {
-      background: #444;
-    }
-    .box {
-      background: #f4f4f4;
-      padding: 22px;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-    ul {
-      margin-top: 10px;
-    }
-    footer {
-      margin-top: 70px;
-      font-size: 14px;
-      color: gray;
-    }
-    img {
-      margin-top: 20px;
-      border-radius: 8px;
-    }
-  </style>
+.btn {
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: #111827;
+  color: white;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 80px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #475569;
+  max-width: 520px;
+}
+
+.hero img {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+}
+
+.section {
+  border-top: 1px solid #f1f5f9;
+}
+
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  align-items: center;
+}
+
+.feature-text h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.feature-text p {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.feature-img img {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+}
+
+.block-gray {
+  background: #f8fafc;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.card {
+  border: 1px solid #e5e7eb;
+  padding: 40px;
+}
+
+.card h3 {
+  margin-bottom: 20px;
+}
+
+.card ul {
+  padding-left: 18px;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+footer {
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+@media(max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<h1>Offline Bulk PDF Renamer for Finance & Accounting Teams</h1>
+<header>
+  <div class="nav">
+    <div class="logo">Ahfaz PDF Renamer</div>
+    <a href="#" class="btn btn-primary">Download</a>
+  </div>
+</header>
 
-<div class="badge">100% Offline • Secure • Windows • Built for Confidential Financial Documents</div>
-
-<p>
-Automatically rename invoice PDFs, tax documents, receipts, and financial reports based on detected content — without uploading files to the cloud.
-</p>
-
-<img src="assets/cover-bulk-pdf-rename.png" alt="Offline Bulk PDF Rename Software for Invoice Processing on Windows" width="100%">
-
-<h2>🚀 Bulk PDF Rename for Invoice & Tax Documents</h2>
-
-<p>
-Process multiple financial PDF files at once using intelligent content detection. 
-Ideal for monthly invoice processing, tax reporting, vendor documentation, and accounting workflows.
-</p>
-
-<h2>🔐 Built for Confidential Financial Documents</h2>
-
-<div class="box">
-<ul>
-  <li>No internet connection required</li>
-  <li>No cloud processing</li>
-  <li>No file uploads</li>
-  <li>All operations run locally on your Windows computer</li>
-</ul>
+<!-- HERO -->
+<div class="container hero">
+  <div>
+    <h1>Professional Bulk PDF Renaming</h1>
+    <p>
+      Structured file renaming powered by local text extraction.
+      Designed for reliable document workflows.
+    </p>
+  </div>
+  <div>
+    <img src="assets/cover-bulk-pdf-rename.png" alt="Bulk PDF Rename Cover">
+  </div>
 </div>
 
-<h2>⚙ Core Features</h2>
+<!-- INTERFACE SECTION -->
+<div class="container section">
+  <h2>Application Interface</h2>
 
-<ul>
-  <li>Content-based PDF renaming</li>
-  <li>Automatic invoice number detection</li>
-  <li>Date extraction from financial documents</li>
-  <li>Client or vendor name detection</li>
-  <li>Duplicate filename handling</li>
-  <li>Illegal character sanitization</li>
-  <li>Optional backup before rename</li>
-  <li>CSV rename activity log</li>
-  <li>Light / Dark mode support</li>
-</ul>
+  <div class="features">
+    <div class="feature-img">
+      <img src="assets/invoice-rename-interface.png" alt="Invoice Rename Interface">
+    </div>
 
-<h2>🏢 Designed for Finance Workflows</h2>
+    <div class="feature-text">
+      <h3>Structured Rename Configuration</h3>
+      <p>
+        Configure extraction fields and naming patterns with a clean,
+        structured interface designed for consistency.
+      </p>
+    </div>
 
-<p>
-Finance and accounting teams handle hundreds of invoice PDF files every month. 
-Manually renaming documents wastes time and increases the risk of human error.
-</p>
+    <div class="feature-text">
+      <h3>Bulk Processing Workflow</h3>
+      <p>
+        Load multiple documents and apply automated renaming rules
+        in a controlled batch operation.
+      </p>
+    </div>
+  </div>
+</div>
 
-<ul>
-  <li>Bulk rename monthly invoice PDFs</li>
-  <li>Organize payment confirmation files</li>
-  <li>Structure tax reporting documents</li>
-  <li>Standardize vendor document naming</li>
-</ul>
+<!-- PROCESSING SECTION -->
+<div class="container section block-gray">
+  <h2>Processing Preview</h2>
 
-<p>
-Ahfaz PDF Renamer ensures secure, structured, and efficient document management — entirely offline.
-</p>
+  <div style="max-width:900px; margin:auto;">
+    <img src="assets/invoice-rename-processing.png" alt="Invoice Rename Processing" style="width:100%; border:1px solid #e5e7eb;">
+  </div>
+</div>
 
-<h2>🆓 Lite Version</h2>
+<!-- VERSION -->
+<div class="container section">
+  <h2>Version Comparison</h2>
 
-<ul>
-  <li>Maximum 15 files per batch</li>
-  <li>5-second delay between batches</li>
-  <li>Multi-field detection locked</li>
-  <li>Upgrade reminder after 100 files per session</li>
-</ul>
+  <div class="comparison">
+    <div class="card">
+      <h3>Lite</h3>
+      <ul>
+        <li>Limited batch size</li>
+        <li>Basic renaming rules</li>
+        <li>Evaluation version</li>
+      </ul>
+    </div>
 
-<h2>💼 Pro Version</h2>
-
-<p>
-Unlimited processing. Full multi-field detection. Designed for high-volume finance environments.
-</p>
-
-<a href="https://ahfazpro.gumroad.com/l/pdfrenametoollite" target="_blank" class="btn btn-lite">Download Lite</a>
-<a href="https://ahfazpro.gumroad.com/l/pdfrenametoolpro" target="_blank" class="btn">Upgrade to Pro</a>
-
-<h2>❓ Frequently Asked Questions</h2>
-
-<h3>Does this software require internet?</h3>
-<p>No. Ahfaz PDF Renamer works 100% offline.</p>
-
-<h3>Is it safe for confidential financial documents?</h3>
-<p>Yes. Files are never uploaded or processed in the cloud.</p>
-
-<h3>Does it work on Mac?</h3>
-<p>No. Currently available for Windows only.</p>
-
-<h3>Who is this software for?</h3>
-<p>Designed for finance teams, accounting staff, and businesses handling sensitive PDF documents.</p>
+    <div class="card">
+      <h3>Pro</h3>
+      <ul>
+        <li>Unlimited processing</li>
+        <li>Advanced extraction</li>
+        <li>High-volume optimization</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <footer>
-Portable Windows Application • No Installation Required • No Admin Rights Needed<br><br>
-Built by Ahfaz Production
+© 2026 Ahfaz PDF Renamer
 </footer>
 
 </body>
