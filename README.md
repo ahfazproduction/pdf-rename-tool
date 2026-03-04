@@ -83,7 +83,7 @@ Ideal for privacy-conscious teams.
 
 Lite & Pro versions available on Gumroad:
 
-👉 [Download Here](YOUR_GUMROAD_LINK)
+👉 [Download Here](https://ahfazpro.gumroad.com/l/pdfrenametoollite)
 
 ---
 
