@@ -75,6 +75,12 @@ header {
   overflow: hidden;
   box-shadow: 0 50px 100px rgba(15,23,42,0.15);
   border: 1px solid #e2e8f0;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.02);
 }
 
 .hero-image img {
@@ -125,6 +131,12 @@ header {
   overflow: hidden;
   box-shadow: 0 40px 80px rgba(15,23,42,0.12);
   border: 1px solid #e2e8f0;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.image-large:hover {
+  transform: scale(1.02);
 }
 
 .image-large img {
@@ -165,6 +177,55 @@ header {
   transform: translateY(-3px);
 }
 
+/* ===== LIGHTBOX ===== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 16px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+}
+
 /* ===== FOOTER ===== */
 footer {
   padding: 80px 20px;
@@ -181,12 +242,13 @@ footer {
     gap: 60px;
   }
 
-  .section {
-    padding: 100px 30px;
-  }
+  .section { padding: 100px 30px; }
 
-  header {
-    padding: 24px 30px;
+  header { padding: 24px 30px; }
+
+  .close-btn {
+    top: 20px;
+    right: 20px;
   }
 }
 </style>
@@ -199,7 +261,6 @@ footer {
   <a href="https://ahfazpro.gumroad.com/" class="btn-primary">Download</a>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <h1>Modern PDF Automation<br>Built for Structured Workflows</h1>
   <p>
@@ -208,17 +269,15 @@ footer {
   </p>
 
   <div class="hero-image">
-    <img src="assets/cover-bulk-pdf-rename.png" alt="Bulk Rename Cover">
+    <img src="assets/cover-bulk-pdf-rename.png" alt="">
   </div>
 </section>
 
-<!-- INTERFACE -->
 <section class="section">
   <div class="split">
     <div class="image-large">
-      <img src="assets/invoice-rename-interface.png" alt="Rename Interface">
+      <img src="assets/invoice-rename-interface.png" alt="">
     </div>
-
     <div class="text">
       <h2>Smart Configuration Interface</h2>
       <p>
@@ -235,14 +294,13 @@ footer {
   </div>
 </section>
 
-<!-- PROCESSING -->
 <section class="section alt-bg">
   <div class="split reverse">
     <div class="text">
       <h2>Transparent Batch Processing</h2>
       <p>
         Execute bulk renaming operations with full visibility.
-        Monitor progress, validate outputs, and maintain consistent file standards.
+        Monitor progress and maintain consistent file standards.
       </p>
       <ul>
         <li>Real-time batch monitoring</li>
@@ -251,14 +309,12 @@ footer {
         <li>Fully offline processing</li>
       </ul>
     </div>
-
     <div class="image-large">
-      <img src="assets/invoice-rename-processing.png" alt="Processing Preview">
+      <img src="assets/invoice-rename-processing.png" alt="">
     </div>
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta">
   <h2>Start Automating Your PDF Workflow</h2>
   <a href="https://ahfazpro.gumroad.com/">Download Now</a>
@@ -267,6 +323,41 @@ footer {
 <footer>
 © 2026 Ahfaz PDF Renamer
 </footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" id="closeBtn">&times;</span>
+  <img src="" id="lightbox-img">
+</div>
+
+<script>
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.getElementById('closeBtn');
+
+document.querySelectorAll('.image-large img, .hero-image img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightbox.classList.add('active');
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+});
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove('active');
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === "Escape") {
+    lightbox.classList.remove('active');
+  }
+});
+</script>
 
 </body>
 </html>
