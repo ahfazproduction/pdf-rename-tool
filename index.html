@@ -1,372 +1,1162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Ahfaz PDF Renamer</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
 
-<style>
-* { box-sizing: border-box; }
+  <title>Ahfaz PDF Renamer | Rename PDFs in Bulk</title>
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #f8fafc;
-  color: #0f172a;
-}
+  <meta
+    name="description"
+    content="Automatically rename PDF files in bulk. Try Ahfaz PDF Renamer Lite free or upgrade to Pro for unlimited high-speed processing."
+  >
 
-/* ===== NAV ===== */
-header {
-  padding: 24px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-.logo {
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: 0.5px;
-}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-.btn-primary {
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  color: white;
-  padding: 14px 28px;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 14px;
-  box-shadow: 0 10px 25px rgba(37,99,235,0.25);
-  transition: 0.2s ease;
-}
+  <style>
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(37,99,235,0.35);
-}
+    * {
+      box-sizing: border-box;
+    }
 
-/* ===== HERO ===== */
-.hero {
-  text-align: center;
-  padding: 120px 20px 80px 20px;
-  background: radial-gradient(circle at top, #e0f2fe 0%, #f8fafc 60%);
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.hero h1 {
-  font-size: 64px;
-  line-height: 1.05;
-  margin-bottom: 24px;
-  font-weight: 800;
-}
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
 
-.hero p {
-  font-size: 20px;
-  color: #475569;
-  max-width: 720px;
-  margin: 0 auto 60px auto;
-}
+    /* ==============================
+       NAVIGATION
+    ============================== */
 
-.hero-image {
-  max-width: 1200px;
-  margin: auto;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 50px 100px rgba(15,23,42,0.15);
-  border: 1px solid #e2e8f0;
-  cursor: zoom-in;
-  transition: transform 0.3s ease;
-}
+    header {
+      padding: 22px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #f1f5f9;
+    }
 
-.hero-image:hover {
-  transform: scale(1.02);
-}
+    .logo {
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: 0.2px;
+    }
 
-.hero-image img {
-  width: 100%;
-  display: block;
-}
 
-/* ===== SECTION ===== */
-.section {
-  padding: 140px 60px;
-  max-width: 1400px;
-  margin: auto;
-}
+    /* ==============================
+       BUTTONS
+    ============================== */
 
-.split {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 100px;
-  align-items: center;
-}
+    .btn-primary,
+    .btn-secondary {
+      display: inline-block;
+      padding: 15px 28px;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: 0.2s ease;
+    }
 
-.split.reverse {
-  grid-template-columns: 1fr 1.1fr;
-}
+    .btn-primary {
+      background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1e40af
+      );
+      color: white;
+      border: 2px solid transparent;
+      box-shadow: 0 10px 25px rgba(37,99,235,0.25);
+    }
 
-.text h2 {
-  font-size: 42px;
-  margin-bottom: 24px;
-  font-weight: 700;
-}
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(37,99,235,0.35);
+    }
 
-.text p {
-  font-size: 18px;
-  color: #475569;
-  line-height: 1.8;
-  margin-bottom: 24px;
-}
+    .btn-secondary {
+      background: white;
+      color: #1e40af;
+      border: 2px solid #2563eb;
+    }
 
-.text ul {
-  padding-left: 20px;
-  font-size: 17px;
-  line-height: 1.8;
-  color: #334155;
-}
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: #eff6ff;
+    }
 
-.image-large {
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 40px 80px rgba(15,23,42,0.12);
-  border: 1px solid #e2e8f0;
-  cursor: zoom-in;
-  transition: transform 0.3s ease;
-}
 
-.image-large:hover {
-  transform: scale(1.02);
-}
+    /* ==============================
+       HERO
+    ============================== */
 
-.image-large img {
-  width: 100%;
-  display: block;
-}
+    .hero {
+      text-align: center;
+      padding: 100px 20px 80px;
+      background: radial-gradient(
+        circle at top,
+        #dbeafe 0%,
+        #f8fafc 62%
+      );
+    }
 
-.alt-bg {
-  background: linear-gradient(to bottom, #ffffff 0%, #f1f5f9 100%);
-}
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 8px 15px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      margin-bottom: 25px;
+    }
 
-/* ===== CTA ===== */
-.cta {
-  text-align: center;
-  padding: 140px 20px;
-  background: linear-gradient(135deg, #1e3a8a, #2563eb);
-  color: white;
-}
+    .hero h1 {
+      max-width: 1000px;
+      margin: 0 auto 24px;
+      font-size: 64px;
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
 
-.cta h2 {
-  font-size: 48px;
-  margin-bottom: 30px;
-}
+    .hero > p {
+      font-size: 20px;
+      line-height: 1.65;
+      color: #475569;
+      max-width: 760px;
+      margin: 0 auto 32px;
+    }
 
-.cta a {
-  background: white;
-  color: #1e3a8a;
-  padding: 16px 36px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  transition: 0.2s ease;
-}
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
 
-.cta a:hover {
-  transform: translateY(-3px);
-}
+    .sale-note {
+      color: #b45309;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
 
-/* ===== LIGHTBOX ===== */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(15,23,42,0.85);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 9999;
-}
 
-.lightbox.active {
-  opacity: 1;
-  visibility: visible;
-}
+    /* ==============================
+       TRUST BAR
+    ============================== */
 
-.lightbox img {
-  max-width: 90%;
-  max-height: 85%;
-  border-radius: 16px;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.4);
-  animation: zoomIn 0.3s ease;
-}
+    .trust-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 28px;
+      color: #475569;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 55px;
+    }
 
-@keyframes zoomIn {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
 
-/* CLOSE BUTTON */
-.close-btn {
-  position: absolute;
-  top: 40px;
-  right: 60px;
-  font-size: 32px;
-  color: white;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s ease;
-}
+    /* ==============================
+       HERO IMAGE
+    ============================== */
 
-.close-btn:hover {
-  transform: scale(1.2);
-}
+    .hero-image {
+      max-width: 1200px;
+      margin: auto;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 50px 100px rgba(15,23,42,0.15);
+      border: 1px solid #e2e8f0;
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+    }
 
-/* ===== FOOTER ===== */
-footer {
-  padding: 80px 20px;
-  text-align: center;
-  color: #64748b;
-  font-size: 14px;
-}
+    .hero-image:hover {
+      transform: scale(1.01);
+    }
 
-@media(max-width: 1024px) {
-  .hero h1 { font-size: 44px; }
+    .hero-image img {
+      width: 100%;
+      display: block;
+    }
 
-  .split, .split.reverse {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
 
-  .section { padding: 100px 30px; }
+    /* ==============================
+       GENERAL SECTION
+    ============================== */
 
-  header { padding: 24px 30px; }
+    .section {
+      padding: 120px 60px;
+      max-width: 1400px;
+      margin: auto;
+    }
 
-  .close-btn {
-    top: 20px;
-    right: 20px;
-  }
-}
-</style>
+    .section-title {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 65px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 18px;
+      font-size: 43px;
+      line-height: 1.15;
+    }
+
+    .section-title p {
+      color: #64748b;
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+
+    /* ==============================
+       FEATURE SECTIONS
+    ============================== */
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .split.reverse {
+      grid-template-columns: 1fr 1.1fr;
+    }
+
+    .text h2 {
+      font-size: 42px;
+      line-height: 1.15;
+      margin: 0 0 24px;
+    }
+
+    .text p {
+      font-size: 18px;
+      color: #475569;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .text ul {
+      padding-left: 20px;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #334155;
+    }
+
+    .image-large {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(15,23,42,0.12);
+      border: 1px solid #e2e8f0;
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+    }
+
+    .image-large:hover {
+      transform: scale(1.01);
+    }
+
+    .image-large img {
+      width: 100%;
+      display: block;
+    }
+
+    .alt-wrapper {
+      background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #f1f5f9
+      );
+    }
+
+
+    /* ==============================
+       LITE VS PRO
+    ============================== */
+
+    .comparison-section {
+      background: #f8fafc;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    .plan {
+      position: relative;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(15,23,42,0.07);
+    }
+
+    .plan.pro {
+      border: 2px solid #2563eb;
+      box-shadow: 0 25px 60px rgba(37,99,235,0.15);
+    }
+
+    .plan-label {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .pro .plan-label {
+      color: #1d4ed8;
+    }
+
+    .plan h3 {
+      font-size: 32px;
+      margin: 10px 0 8px;
+    }
+
+    .plan-subtitle {
+      color: #64748b;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .price {
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+
+    .price.free {
+      color: #059669;
+    }
+
+    .price.sale {
+      color: #2563eb;
+    }
+
+    .plan ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+    }
+
+    .plan li {
+      position: relative;
+      padding: 11px 0 11px 30px;
+      color: #475569;
+      line-height: 1.5;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .plan li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #059669;
+      font-weight: 800;
+    }
+
+    .plan strong {
+      color: #0f172a;
+    }
+
+    .plan .btn-primary,
+    .plan .btn-secondary {
+      width: 100%;
+      text-align: center;
+    }
+
+    .promo-small {
+      text-align: center;
+      margin: 14px 0 0;
+      font-size: 13px;
+      color: #b45309;
+      font-weight: 700;
+    }
+
+
+    /* ==============================
+       FINAL CTA
+    ============================== */
+
+    .cta {
+      text-align: center;
+      padding: 120px 20px;
+      background: linear-gradient(
+        135deg,
+        #1e3a8a,
+        #2563eb
+      );
+      color: white;
+    }
+
+    .cta h2 {
+      font-size: 48px;
+      margin: 0 0 18px;
+    }
+
+    .cta p {
+      font-size: 18px;
+      color: #dbeafe;
+      margin: 0 auto 30px;
+      max-width: 650px;
+      line-height: 1.6;
+    }
+
+    .btn-white {
+      display: inline-block;
+      background: white;
+      color: #1e3a8a;
+      padding: 16px 34px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: 0.2s ease;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+    }
+
+    .btn-white:hover {
+      transform: translateY(-3px);
+    }
+
+
+    /* ==============================
+       FOOTER
+    ============================== */
+
+    footer {
+      padding: 60px 20px;
+      text-align: center;
+      color: #64748b;
+      font-size: 14px;
+      background: white;
+    }
+
+
+    /* ==============================
+       LIGHTBOX
+    ============================== */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.88);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 9999;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 16px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 40px;
+      right: 60px;
+      font-size: 32px;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .close-btn:hover {
+      transform: scale(1.2);
+    }
+
+
+    /* ==============================
+       TABLET
+    ============================== */
+
+    @media(max-width: 1024px) {
+
+      header {
+        padding: 20px 25px;
+      }
+
+      .hero {
+        padding-top: 75px;
+      }
+
+      .hero h1 {
+        font-size: 46px;
+        letter-spacing: -1px;
+      }
+
+      .hero > p {
+        font-size: 18px;
+      }
+
+      .split,
+      .split.reverse {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .plans {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 85px 25px;
+      }
+
+      .text h2,
+      .section-title h2 {
+        font-size: 34px;
+      }
+
+      .cta h2 {
+        font-size: 38px;
+      }
+
+      .close-btn {
+        top: 20px;
+        right: 20px;
+      }
+
+    }
+
+
+    /* ==============================
+       MOBILE
+    ============================== */
+
+    @media(max-width: 600px) {
+
+      header {
+        padding: 17px 18px;
+      }
+
+      .logo {
+        font-size: 14px;
+      }
+
+      header .btn-primary {
+        padding: 10px 14px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 65px 18px 60px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+        letter-spacing: -1px;
+      }
+
+      .hero > p {
+        font-size: 17px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-buttons a {
+        width: 100%;
+        max-width: 310px;
+      }
+
+      .trust-bar {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 40px;
+      }
+
+      .section {
+        padding: 70px 20px;
+      }
+
+      .plan {
+        padding: 30px 24px;
+      }
+
+      .cta {
+        padding: 85px 20px;
+      }
+
+      .cta h2 {
+        font-size: 34px;
+      }
+
+    }
+
+  </style>
 </head>
+
 
 <body>
 
+
+<!-- ==============================
+     HEADER
+============================== -->
+
 <header>
-  <div class="logo">Ahfaz PDF Renamer</div>
-  <a href="https://ahfazpro.gumroad.com/" 
-   class="btn-primary" 
-   target="_blank" 
-   rel="noopener noreferrer">
-   Download
+
+  <div class="logo">
+    Ahfaz PDF Renamer
+  </div>
+
+  <a
+    href="https://ahfazpro.gumroad.com/l/pdfrenametoollite"
+    class="btn-primary"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Try Free
   </a>
+
 </header>
 
+
+
+<!-- ==============================
+     HERO
+============================== -->
+
 <section class="hero">
-  <h1>Modern PDF Automation<br>Built for Structured Workflows</h1>
+
+  <div class="badge">
+    PDF RENAMING AUTOMATION
+  </div>
+
+  <h1>
+    Rename Hundreds of PDFs<br>
+    in Minutes
+  </h1>
+
   <p>
-    Extract text directly from PDF documents and automatically rename files
-    in bulk with precision, speed, and consistency.
+    Extract text from your PDFs and automatically
+    rename files in bulk. Fast, accurate,
+    and 100% offline.
   </p>
 
-  <div class="hero-image">
-    <img src="assets/cover-bulk-pdf-rename-.png" alt="">
+
+  <div class="hero-buttons">
+
+    <a
+      href="https://ahfazpro.gumroad.com/l/pdfrenametoollite"
+      class="btn-primary"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Try Lite for FREE
+    </a>
+
+    <a
+      href="https://ahfazpro.gumroad.com/l/pdfrenametoolpro"
+      class="btn-secondary"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Get Pro · Save $10
+    </a>
+
   </div>
+
+
+  <div class="sale-note">
+    🔥 Year-End Sale: Save $10 on Pro until Jan 1, 2027
+  </div>
+
+
+  <div class="trust-bar">
+
+    <span>✓ 100% Offline</span>
+
+    <span>✓ Privacy-Friendly</span>
+
+    <span>✓ Free Lite Version</span>
+
+    <span>✓ Bulk PDF Processing</span>
+
+  </div>
+
+
+  <div class="hero-image">
+
+    <img
+      src="assets/cover-bulk-pdf-rename-.png"
+      alt="Ahfaz PDF Renamer bulk PDF renaming software"
+    >
+
+  </div>
+
 </section>
+
+
+
+<!-- ==============================
+     FEATURE 1
+============================== -->
 
 <section class="section">
+
   <div class="split">
+
     <div class="image-large">
-      <img src="assets/invoice-rename-interface.png" alt="">
+
+      <img
+        src="assets/invoice-rename-interface.png"
+        alt="Ahfaz PDF Renamer configuration interface"
+      >
+
     </div>
+
+
     <div class="text">
-      <h2>Smart Configuration Interface</h2>
+
+      <h2>
+        Build Your Own Renaming Rules
+      </h2>
+
       <p>
-        Define structured extraction fields and create dynamic naming rules
-        through an intuitive workflow layout.
+        Extract the information you need directly
+        from PDF documents and turn it into
+        consistent, structured filenames.
       </p>
+
       <ul>
-        <li>Multi-field data extraction</li>
-        <li>Flexible renaming structure</li>
-        <li>Pre-rename preview validation</li>
-        <li>Batch rule execution</li>
+
+        <li>
+          Multi-field data extraction
+        </li>
+
+        <li>
+          Flexible renaming structures
+        </li>
+
+        <li>
+          Preview filenames before renaming
+        </li>
+
+        <li>
+          Process multiple files at once
+        </li>
+
       </ul>
+
     </div>
+
   </div>
+
 </section>
 
-<section class="section alt-bg">
-  <div class="split reverse">
-    <div class="text">
-      <h2>Transparent Batch Processing</h2>
-      <p>
-        Execute bulk renaming operations with full visibility.
-        Monitor progress and maintain consistent file standards.
-      </p>
-      <ul>
-        <li>Real-time batch monitoring</li>
-        <li>Error detection feedback</li>
-        <li>Consistent naming enforcement</li>
-        <li>Fully offline processing</li>
-      </ul>
+
+
+<!-- ==============================
+     FEATURE 2
+============================== -->
+
+<div class="alt-wrapper">
+
+  <section class="section">
+
+    <div class="split reverse">
+
+      <div class="text">
+
+        <h2>
+          Rename in Bulk with Confidence
+        </h2>
+
+        <p>
+          Process multiple PDF files while keeping
+          full visibility over the results before
+          your documents are renamed.
+        </p>
+
+        <ul>
+
+          <li>
+            Real-time batch monitoring
+          </li>
+
+          <li>
+            Error detection feedback
+          </li>
+
+          <li>
+            Consistent file naming
+          </li>
+
+          <li>
+            Fully offline processing
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="image-large">
+
+        <img
+          src="assets/invoice-rename-processing.png"
+          alt="Ahfaz PDF Renamer batch processing screen"
+        >
+
+      </div>
+
     </div>
-    <div class="image-large">
-      <img src="assets/invoice-rename-processing.png" alt="">
-    </div>
-  </div>
-</section>
 
-<section class="cta">
-  <h2>Start Automating Your PDF Workflow</h2>
-  <a href="https://ahfazpro.gumroad.com/" 
-   target="_blank" 
-   rel="noopener noreferrer">
-   Download Now
-  </a>
-</section>
+  </section>
 
-<footer>
-© 2026 Ahfaz PDF Renamer
-</footer>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <span class="close-btn" id="closeBtn">&times;</span>
-  <img src="" id="lightbox-img">
 </div>
 
+
+
+<!-- ==============================
+     LITE VS PRO
+============================== -->
+
+<section class="section comparison-section">
+
+  <div class="section-title">
+
+    <h2>
+      Start Free. Go Pro When You Need More.
+    </h2>
+
+    <p>
+      Try Ahfaz PDF Renamer Lite for free.
+      Upgrade to Pro when you need unlimited
+      batch sizes, faster processing, and
+      full multi-field detection.
+    </p>
+
+  </div>
+
+
+  <div class="plans">
+
+
+    <!-- ==========================
+         LITE
+    ========================== -->
+
+    <div class="plan">
+
+      <div class="plan-label">
+        FOR LIGHT DAILY TASKS
+      </div>
+
+      <h3>
+        Lite
+      </h3>
+
+      <div class="plan-subtitle">
+        Start using Ahfaz PDF Renamer for free.
+      </div>
+
+      <div class="price free">
+        FREE
+      </div>
+
+
+      <ul>
+
+        <li>
+          Up to
+          <strong>15 files per batch</strong>
+        </li>
+
+        <li>
+          5-second processing delay
+        </li>
+
+        <li>
+          Perfect for light daily tasks
+        </li>
+
+        <li>
+          100% offline processing
+        </li>
+
+      </ul>
+
+
+      <a
+        href="https://ahfazpro.gumroad.com/l/pdfrenametoollite"
+        class="btn-secondary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Try Lite for FREE
+      </a>
+
+    </div>
+
+
+
+    <!-- ==========================
+         PRO
+    ========================== -->
+
+    <div class="plan pro">
+
+      <div class="plan-label">
+        FOR HEAVY PDF WORKFLOWS
+      </div>
+
+      <h3>
+        Pro
+      </h3>
+
+      <div class="plan-subtitle">
+        Remove the limits and work faster.
+      </div>
+
+      <div class="price sale">
+        Save $10
+      </div>
+
+
+      <ul>
+
+        <li>
+          <strong>Unlimited files</strong>
+          per batch
+        </li>
+
+        <li>
+          <strong>No processing delay</strong>
+        </li>
+
+        <li>
+          High-speed processing
+        </li>
+
+        <li>
+          <strong>
+            Full multi-field detection
+          </strong>
+        </li>
+
+        <li>
+          100% offline processing
+        </li>
+
+      </ul>
+
+
+      <a
+        href="https://ahfazpro.gumroad.com/l/pdfrenametoolpro"
+        class="btn-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Get Pro · Save $10
+      </a>
+
+
+      <p class="promo-small">
+        🔥 Year-End Sale ends Jan 1, 2027
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==============================
+     FINAL CTA
+============================== -->
+
+<section class="cta">
+
+  <h2>
+    Stop Renaming PDFs One by One
+  </h2>
+
+  <p>
+    Start with Ahfaz PDF Renamer Lite for free.
+    Upgrade to Pro when your workflow needs
+    more speed and capacity.
+  </p>
+
+
+  <a
+    href="https://ahfazpro.gumroad.com/l/pdfrenametoollite"
+    class="btn-white"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Try Lite for FREE
+  </a>
+
+</section>
+
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+  © 2026 Ahfaz PDF Renamer
+</footer>
+
+
+
+<!-- ==============================
+     LIGHTBOX
+============================== -->
+
+<div
+  class="lightbox"
+  id="lightbox"
+>
+
+  <span
+    class="close-btn"
+    id="closeBtn"
+  >
+    &times;
+  </span>
+
+  <img
+    src=""
+    id="lightbox-img"
+    alt="Expanded Ahfaz PDF Renamer screenshot"
+  >
+
+</div>
+
+
+
+<!-- ==============================
+     JAVASCRIPT
+============================== -->
+
 <script>
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const closeBtn = document.getElementById('closeBtn');
 
-document.querySelectorAll('.image-large img, .hero-image img').forEach(img => {
+const lightbox =
+  document.getElementById('lightbox');
+
+const lightboxImg =
+  document.getElementById('lightbox-img');
+
+const closeBtn =
+  document.getElementById('closeBtn');
+
+
+document.querySelectorAll(
+  '.image-large img, .hero-image img'
+).forEach(img => {
+
   img.addEventListener('click', () => {
+
     lightboxImg.src = img.src;
+
     lightbox.classList.add('active');
+
   });
+
 });
 
-closeBtn.addEventListener('click', () => {
-  lightbox.classList.remove('active');
-});
 
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) {
+closeBtn.addEventListener(
+  'click',
+  () => {
+
     lightbox.classList.remove('active');
-  }
-});
 
-document.addEventListener('keydown', (e) => {
-  if (e.key === "Escape") {
-    lightbox.classList.remove('active');
   }
-});
+);
+
+
+lightbox.addEventListener(
+  'click',
+  (e) => {
+
+    if (e.target === lightbox) {
+
+      lightbox.classList.remove('active');
+
+    }
+
+  }
+);
+
+
+document.addEventListener(
+  'keydown',
+  (e) => {
+
+    if (e.key === 'Escape') {
+
+      lightbox.classList.remove('active');
+
+    }
+
+  }
+);
+
 </script>
+
 
 </body>
 </html>
