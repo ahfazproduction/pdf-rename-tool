@@ -38,6 +38,7 @@
       color: #0f172a;
     }
 
+
     /* ==============================
        NAVIGATION
     ============================== */
@@ -177,32 +178,73 @@
 
 
     /* ==============================
-       HERO IMAGE
+       LITE + PRO COVERS
     ============================== */
 
-    .hero-image {
+    .product-covers {
       max-width: 1200px;
-      margin: auto;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .product-cover {
+      background: white;
       border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 50px 100px rgba(15,23,42,0.15);
+      box-shadow: 0 30px 70px rgba(15,23,42,0.14);
       border: 1px solid #e2e8f0;
       cursor: zoom-in;
-      transition: transform 0.3s ease;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
     }
 
-    .hero-image:hover {
-      transform: scale(1.01);
+    .product-cover:hover {
+      transform: translateY(-4px);
+      border-color: #2563eb;
+      box-shadow: 0 40px 85px rgba(37,99,235,0.18);
     }
 
-    .hero-image img {
+    .product-cover img {
       width: 100%;
+      height: auto;
       display: block;
+    }
+
+    .cover-info {
+      padding: 20px 18px 22px;
+      text-align: center;
+      cursor: default;
+    }
+
+    .cover-info h3 {
+      margin: 0 0 7px;
+      font-size: 20px;
+      color: #0f172a;
+    }
+
+    .cover-info p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #64748b;
+    }
+
+    .cover-lite h3 {
+      color: #334155;
+    }
+
+    .cover-pro h3 {
+      color: #1d4ed8;
     }
 
 
     /* ==============================
-       GENERAL SECTION
+       GENERAL SECTIONS
     ============================== */
 
     .section {
@@ -272,11 +314,16 @@
       box-shadow: 0 40px 80px rgba(15,23,42,0.12);
       border: 1px solid #e2e8f0;
       cursor: zoom-in;
-      transition: transform 0.3s ease;
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
     .image-large:hover {
-      transform: scale(1.01);
+      transform: translateY(-4px);
+      border-color: #2563eb;
+      box-shadow: 0 40px 85px rgba(37,99,235,0.16);
     }
 
     .image-large img {
@@ -309,18 +356,44 @@
       margin: auto;
     }
 
+    /*
+       Both cards are neutral by default.
+       Blue border appears only on hover.
+    */
+
     .plan {
       position: relative;
       background: white;
-      border: 1px solid #e2e8f0;
+      border: 2px solid #e2e8f0;
       border-radius: 20px;
       padding: 40px;
-      box-shadow: 0 20px 50px rgba(15,23,42,0.07);
+      box-shadow: 0 12px 35px rgba(15,23,42,0.06);
+      cursor: default;
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
+    .plan:hover {
+      transform: translateY(-6px);
+      border-color: #2563eb;
+      box-shadow: 0 25px 60px rgba(37,99,235,0.16);
+    }
+
+    /*
+       Pro has no permanent blue border.
+    */
+
     .plan.pro {
-      border: 2px solid #2563eb;
-      box-shadow: 0 25px 60px rgba(37,99,235,0.15);
+      border-color: #e2e8f0;
+      box-shadow: 0 12px 35px rgba(15,23,42,0.06);
+    }
+
+    .plan.pro:hover {
+      border-color: #2563eb;
+      box-shadow: 0 25px 60px rgba(37,99,235,0.16);
     }
 
     .plan-label {
@@ -430,6 +503,13 @@
       line-height: 1.6;
     }
 
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
     .btn-white {
       display: inline-block;
       background: white;
@@ -443,6 +523,23 @@
     }
 
     .btn-white:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-outline-white {
+      display: inline-block;
+      background: transparent;
+      color: white;
+      padding: 16px 34px;
+      border-radius: 12px;
+      border: 2px solid rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.1);
       transform: translateY(-3px);
     }
 
@@ -569,7 +666,6 @@
         top: 20px;
         right: 20px;
       }
-
     }
 
 
@@ -621,6 +717,15 @@
         margin-bottom: 40px;
       }
 
+      .product-covers {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .cover-info h3 {
+        font-size: 18px;
+      }
+
       .section {
         padding: 70px 20px;
       }
@@ -637,18 +742,26 @@
         font-size: 34px;
       }
 
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cta-buttons a {
+        width: 100%;
+        max-width: 310px;
+      }
     }
 
   </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ==============================
-     HEADER
-============================== -->
+<!-- HEADER -->
 
 <header>
 
@@ -669,9 +782,7 @@
 
 
 
-<!-- ==============================
-     HERO
-============================== -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -685,9 +796,8 @@
   </h1>
 
   <p>
-    Extract text from your PDFs and automatically
-    rename files in bulk. Fast, accurate,
-    and 100% offline.
+    Extract text from your PDFs and automatically rename files in bulk.
+    Fast, accurate, and 100% offline.
   </p>
 
 
@@ -722,22 +832,67 @@
   <div class="trust-bar">
 
     <span>✓ 100% Offline</span>
-
     <span>✓ Privacy-Friendly</span>
-
     <span>✓ Free Lite Version</span>
-
     <span>✓ Bulk PDF Processing</span>
 
   </div>
 
 
-  <div class="hero-image">
 
-    <img
-      src="assets/cover-bulk-pdf-rename-.png"
-      alt="Ahfaz PDF Renamer bulk PDF renaming software"
-    >
+  <!-- PRODUCT COVERS -->
+
+  <div class="product-covers">
+
+
+    <!-- LITE COVER -->
+
+    <div class="product-cover cover-lite">
+
+      <img
+        src="assets/cover-bulk-pdf-rename-.png"
+        alt="Ahfaz PDF Renamer Lite"
+      >
+
+      <div class="cover-info">
+
+        <h3>
+          Ahfaz PDF Renamer Lite
+        </h3>
+
+        <p>
+          Free version for light daily PDF renaming tasks.
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- PRO COVER -->
+
+    <div class="product-cover cover-pro">
+
+      <img
+        src="assets/cover-pro.png"
+        alt="Ahfaz PDF Renamer Pro"
+      >
+
+      <div class="cover-info">
+
+        <h3>
+          Ahfaz PDF Renamer Pro
+        </h3>
+
+        <p>
+          Unlimited, high-speed processing for professional workflows.
+        </p>
+
+      </div>
+
+    </div>
+
 
   </div>
 
@@ -745,13 +900,12 @@
 
 
 
-<!-- ==============================
-     FEATURE 1
-============================== -->
+<!-- FEATURE 1 -->
 
 <section class="section">
 
   <div class="split">
+
 
     <div class="image-large">
 
@@ -770,32 +924,21 @@
       </h2>
 
       <p>
-        Extract the information you need directly
-        from PDF documents and turn it into
-        consistent, structured filenames.
+        Extract the information you need directly from PDF documents
+        and turn it into consistent, structured filenames.
       </p>
 
       <ul>
 
-        <li>
-          Multi-field data extraction
-        </li>
-
-        <li>
-          Flexible renaming structures
-        </li>
-
-        <li>
-          Preview filenames before renaming
-        </li>
-
-        <li>
-          Process multiple files at once
-        </li>
+        <li>Multi-field data extraction</li>
+        <li>Flexible renaming structures</li>
+        <li>Preview filenames before renaming</li>
+        <li>Process multiple files at once</li>
 
       </ul>
 
     </div>
+
 
   </div>
 
@@ -803,15 +946,14 @@
 
 
 
-<!-- ==============================
-     FEATURE 2
-============================== -->
+<!-- FEATURE 2 -->
 
 <div class="alt-wrapper">
 
   <section class="section">
 
     <div class="split reverse">
+
 
       <div class="text">
 
@@ -820,28 +962,16 @@
         </h2>
 
         <p>
-          Process multiple PDF files while keeping
-          full visibility over the results before
-          your documents are renamed.
+          Process multiple PDF files while keeping full visibility
+          over the results before your documents are renamed.
         </p>
 
         <ul>
 
-          <li>
-            Real-time batch monitoring
-          </li>
-
-          <li>
-            Error detection feedback
-          </li>
-
-          <li>
-            Consistent file naming
-          </li>
-
-          <li>
-            Fully offline processing
-          </li>
+          <li>Real-time batch monitoring</li>
+          <li>Error detection feedback</li>
+          <li>Consistent file naming</li>
+          <li>Fully offline processing</li>
 
         </ul>
 
@@ -857,6 +987,7 @@
 
       </div>
 
+
     </div>
 
   </section>
@@ -865,11 +996,10 @@
 
 
 
-<!-- ==============================
-     LITE VS PRO
-============================== -->
+<!-- LITE VS PRO -->
 
 <section class="section comparison-section">
+
 
   <div class="section-title">
 
@@ -879,20 +1009,18 @@
 
     <p>
       Try Ahfaz PDF Renamer Lite for free.
-      Upgrade to Pro when you need unlimited
-      batch sizes, faster processing, and
-      full multi-field detection.
+      Upgrade to Pro when you need unlimited batch sizes,
+      faster processing, and full multi-field detection.
     </p>
 
   </div>
 
 
+
   <div class="plans">
 
 
-    <!-- ==========================
-         LITE
-    ========================== -->
+    <!-- LITE -->
 
     <div class="plan">
 
@@ -916,8 +1044,7 @@
       <ul>
 
         <li>
-          Up to
-          <strong>15 files per batch</strong>
+          Up to <strong>15 files per batch</strong>
         </li>
 
         <li>
@@ -948,9 +1075,7 @@
 
 
 
-    <!-- ==========================
-         PRO
-    ========================== -->
+    <!-- PRO -->
 
     <div class="plan pro">
 
@@ -974,8 +1099,7 @@
       <ul>
 
         <li>
-          <strong>Unlimited files</strong>
-          per batch
+          <strong>Unlimited files</strong> per batch
         </li>
 
         <li>
@@ -987,9 +1111,7 @@
         </li>
 
         <li>
-          <strong>
-            Full multi-field detection
-          </strong>
+          <strong>Full multi-field detection</strong>
         </li>
 
         <li>
@@ -1015,15 +1137,14 @@
 
     </div>
 
+
   </div>
 
 </section>
 
 
 
-<!-- ==============================
-     FINAL CTA
-============================== -->
+<!-- FINAL CTA -->
 
 <section class="cta">
 
@@ -1033,27 +1154,38 @@
 
   <p>
     Start with Ahfaz PDF Renamer Lite for free.
-    Upgrade to Pro when your workflow needs
-    more speed and capacity.
+    Upgrade to Pro when your workflow needs more speed and capacity.
   </p>
 
 
-  <a
-    href="https://ahfazpro.gumroad.com/l/pdfrenametoollite"
-    class="btn-white"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Try Lite for FREE
-  </a>
+  <div class="cta-buttons">
+
+    <a
+      href="https://ahfazpro.gumroad.com/l/pdfrenametoollite"
+      class="btn-white"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Try Lite for FREE
+    </a>
+
+
+    <a
+      href="https://ahfazpro.gumroad.com/l/pdfrenametoolpro"
+      class="btn-outline-white"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Get Pro · Save $10
+    </a>
+
+  </div>
 
 </section>
 
 
 
-<!-- ==============================
-     FOOTER
-============================== -->
+<!-- FOOTER -->
 
 <footer>
   © 2026 Ahfaz PDF Renamer
@@ -1061,9 +1193,7 @@
 
 
 
-<!-- ==============================
-     LIGHTBOX
-============================== -->
+<!-- LIGHTBOX -->
 
 <div
   class="lightbox"
@@ -1087,9 +1217,7 @@
 
 
 
-<!-- ==============================
-     JAVASCRIPT
-============================== -->
+<!-- JAVASCRIPT -->
 
 <script>
 
@@ -1104,13 +1232,12 @@ const closeBtn =
 
 
 document.querySelectorAll(
-  '.image-large img, .hero-image img'
+  '.image-large img, .product-cover img'
 ).forEach(img => {
 
   img.addEventListener('click', () => {
 
     lightboxImg.src = img.src;
-
     lightbox.classList.add('active');
 
   });
@@ -1118,42 +1245,29 @@ document.querySelectorAll(
 });
 
 
-closeBtn.addEventListener(
-  'click',
-  () => {
+closeBtn.addEventListener('click', () => {
 
+  lightbox.classList.remove('active');
+
+});
+
+
+lightbox.addEventListener('click', (e) => {
+
+  if (e.target === lightbox) {
     lightbox.classList.remove('active');
-
   }
-);
+
+});
 
 
-lightbox.addEventListener(
-  'click',
-  (e) => {
+document.addEventListener('keydown', (e) => {
 
-    if (e.target === lightbox) {
-
-      lightbox.classList.remove('active');
-
-    }
-
+  if (e.key === 'Escape') {
+    lightbox.classList.remove('active');
   }
-);
 
-
-document.addEventListener(
-  'keydown',
-  (e) => {
-
-    if (e.key === 'Escape') {
-
-      lightbox.classList.remove('active');
-
-    }
-
-  }
-);
+});
 
 </script>
 
